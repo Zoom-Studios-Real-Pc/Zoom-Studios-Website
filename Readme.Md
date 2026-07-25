@@ -1,7 +1,7 @@
 # 🎬 Zoom Studios — Official Website
 
 <div>
-  <img src="Assets/Photos/Zoom Studios.png" width="256" alt="Zoom Studios logo" />
+  <img src="Assets/Photos/Zoom Studios.png" width="512" alt="Zoom Studios logo" />
 </div>
 
 [![Live Demo](https://img.shields.io/badge/Live-zoom--studios.netlify.app-00f2fe?style=for-the-badge&logo=netlify&logoColor=white)](https://zoom-studios.netlify.app/)
