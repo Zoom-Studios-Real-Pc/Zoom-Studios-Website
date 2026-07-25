@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom Studios</title>
+    <link rel="icon" type="image/png" href="Assets/Photos/Zoom Studios.png" sizes="any">
+    <link rel="shortcut icon" type="image/png" href="Assets/Photos/Zoom Studios.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="space-background"></div>
+
+    <header id="main-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <h1 class="logo-text">ZOOM STUDIOS</h1>
+            </div>
+            
+            <nav>
+                <button class="nav-tab active" onclick="switchTab('home', event)">Home</button>
+                <button class="nav-tab" onclick="switchTab('projects', event)">Projects</button>
+                <button class="nav-tab" onclick="switchTab('about', event)">About Us</button>
+            </nav>
+        </div>
+        
+        <div class="header-socials-bar" id="header-socials-container"></div>
+    </header>
+
+    <main>
+        <!-- HOME TAB -->
+        <section id="home" class="tab-content active">
+            <div class="hero">
+                <span class="hero-badge">⚡ Official Portal</span>
+                <h2>Welcome to Zoom Studios</h2>
+                <p>We are an independent creative and technical studio building original games, applications, custom operating systems, AI tools, and immersive digital experiences from the ground up.</p>
+                <p>Our work combines programming, design, animation, modeling, drawing, and storytelling into one vision: creating ambitious projects that are powerful, original, and built with passion.</p>
+            </div>
+
+            <div class="hero hero-secondary">
+                <h3 class="hero-subtitle">What defines us</h3>
+                <p>We focus on innovation, long-term creativity, and high-quality development. Whether we are building software, systems, interfaces, or visual content, we aim to make every project meaningful and memorable.</p>
+                <p>We believe in learning, experimenting, and pushing ideas forward together. If you love creating, solving problems, and bringing imagination to life, you will feel at home here.</p>
+            </div>
+        </section>
+
+        <!-- PROJECTS TAB -->
+        <section id="projects" class="tab-content">
+            <div class="section-header">
+                <h2>Our Projects</h2>
+                <p>Loaded dynamically from config.json with smart abbreviation filtering and multi-language support.</p>
+            </div>
+
+            <div class="projects-controls">
+                <div class="search-filter-wrapper">
+                    <label for="search-criterion" class="sr-only">Choose search category</label>
+                    <select id="search-criterion" title="Choose search category" onchange="filterAndRenderProjects()">
+                        <option value="name">Search by Name</option>
+                        <option value="type">Search by Type</option>
+                        <option value="phase">Search by Phase</option>
+                    </select>
+                    <input type="text" id="project-search" placeholder="Type to search..." oninput="filterAndRenderProjects()">
+                </div>
+                <div id="project-counter" class="project-counter"></div>
+            </div>
+
+            <div class="projects-grid" id="projects-grid-container"></div>
+        </section>
+
+        <!-- ABOUT US TAB -->
+        <section id="about" class="tab-content">
+            <div class="section-header">
+                <h2>About Us</h2>
+                <p>Learn more about our mission, our values, and the way we build.</p>
+            </div>
+            <div class="hero">
+                <p>Zoom Studios is an independent creative studio focused on building original software, games, AI systems, operating systems, and digital experiences. We believe that great projects come from combining creativity, technical skill, and passion.</p>
+                <p>Our goal is not only to make things that work, but to make things that matter. We are driven by innovation, self-improvement, and the courage to build ambitious ideas from the ground up.</p>
+                <p>We are also growing a community of people who want to create with purpose. If you enjoy programming, design, animation, 3D, drawing, or any other form of digital creation, there is a place for you here.</p>
+            </div>
+
+            <div class="about-social-section">
+                <h3>Join Our Team</h3>
+                <p>If you want to join Zoom Studios, the first step is to contact us through Discord. Ask the Owner or a Team Member if they would accept you, and if they say yes, be ready to answer a few important questions: what would you bring to our team, what would you add to our projects, and how would you help us grow?</p>
+                <p>We are looking for people who can help with programming games, applications, operating systems, PC-related software, animation, modeling, drawing, and many other creative or technical areas. Do not be afraid to apply — we welcome people who are willing to learn, create, and contribute.</p>
+                <p>Most of our work is currently done for free while we build toward paid projects. When the projects are paid, contributors can receive compensation based on the work they helped create.</p>
+                <h3 class="connect-heading">Connect With Us</h3>
+                <p>Join our community and check out our code repositories.</p>
+                <div class="about-socials" id="about-socials-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODÁLNÍ GUI OKNO PRO MARKDOWN -->
+    <div id="docs-modal-overlay" class="modal-overlay is-hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-project-title">
+        <div class="modal-window">
+            <div class="modal-header" id="modal-header-bg">
+                <div class="modal-title-area">
+                    <h3 id="modal-project-title">Documentation</h3>
+                </div>
+                <button class="modal-close-circle" onclick="closeDocsModal()" title="Close">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body markdown-body" id="modal-markdown-content">
+                Loading...
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Zoom Studios. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let rawGlobalData = {};
+
+        fetch('config.json')
+            .then(response => {
+                if (!response.ok) throw new Error("Nelze načíst config.json");
+                return response.json();
+            })
+            .then(data => {
+                rawGlobalData = data;
+                renderSocialLinks(data);
+                filterAndRenderProjects();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('projects-grid-container').innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">⚠️</div>
+                        <h3>Error loading config.json</h3>
+                        <p>Make sure config.json is present in the root folder.</p>
+                    </div>
+                `;
+            });
+
+        function renderSocialLinks(data) {
+            const youtubeUrl = data["youtube link"] || "";
+            const discordUrl = data["discord link"] || "";
+            const githubUrl = data["github link"] || "";
+
+            let htmlContent = '';
+
+            if (githubUrl) {
+                htmlContent += `<a href="${githubUrl}" target="_blank" class="icon-btn github-icon" title="GitHub">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>`;
+            }
+            if (youtubeUrl) {
+                htmlContent += `<a href="${youtubeUrl}" target="_blank" class="icon-btn youtube-icon" title="YouTube">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>`;
+            }
+            if (discordUrl) {
+                htmlContent += `<a href="${discordUrl}" target="_blank" class="icon-btn discord-icon" title="Discord">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                </a>`;
+            }
+
+            document.getElementById('header-socials-container').innerHTML = htmlContent;
+            document.getElementById('about-socials-container').innerHTML = htmlContent.replace(/class="icon-btn/g, 'class="icon-btn icon-btn-large');
+        }
+
+        function expandSearchTerm(term) {
+            let t = term.toLowerCase().trim();
+            if (t === 'ai') return ['ai', 'artificial intelligence'];
+            if (t === 'agi') return ['agi', 'artificial general intelligence'];
+            if (t === 'app') return ['app', 'application'];
+            if (t === 'os') return ['os', 'operating system'];
+            if (t === 'game') return ['game'];
+            if (t === 'engine') return ['engine'];
+            if (t === 'website') return ['website', 'web'];
+            
+            let results = [t];
+            if (t.includes('ai')) results.push(t.replace('ai', 'artificial intelligence'));
+            if (t.includes('agi')) results.push(t.replace('agi', 'artificial general intelligence'));
+            if (t.includes('app')) results.push(t.replace('app', 'application'));
+            if (t.includes('os')) results.push(t.replace('os', 'operating system'));
+            return results;
+        }
+
+        function filterAndRenderProjects() {
+            const container = document.getElementById('projects-grid-container');
+            const counterContainer = document.getElementById('project-counter');
+            const searchTerm = document.getElementById('project-search').value.toLowerCase().trim();
+            const searchCriterion = document.getElementById('search-criterion').value;
+            const rawProjectsData = rawGlobalData.projects || {};
+            const phasesColorMap = rawGlobalData["phases color"] || {};
+            const typesColorMap = rawGlobalData["types color"] || {};
+            const languagesColorMap = rawGlobalData["language color"] || rawGlobalData["languages color"] || {};
+
+            let projectsArray = Object.keys(rawProjectsData).map(name => {
+                return {
+                    name: name,
+                    ...rawProjectsData[name]
+                };
+            });
+
+            projectsArray.sort((a, b) => a.name.localeCompare(b.name, 'cs', { sensitivity: 'base' }));
+
+            const expandedTerms = searchTerm !== "" ? expandSearchTerm(searchTerm) : [];
+
+            const filteredArray = projectsArray.filter(p => {
+                if (searchTerm === "") return true;
+
+                if (searchCriterion === 'name') {
+                    return p.name.toLowerCase().includes(searchTerm);
+                } else if (searchCriterion === 'type') {
+                    const pType = (p["project type"] || "").toLowerCase();
+                    return expandedTerms.some(term => pType.includes(term));
+                } else if (searchCriterion === 'phase') {
+                    const pPhase = (p["project phase"] || "").toLowerCase();
+                    return expandedTerms.some(term => pPhase.includes(term));
+                }
+                return true;
+            });
+
+            const totalCount = projectsArray.length;
+            const shownCount = filteredArray.length;
+            if (searchTerm !== "") {
+                counterContainer.innerHTML = `Found <strong>${shownCount}</strong> of <strong>${totalCount}</strong> projects`;
+            } else {
+                counterContainer.innerHTML = `Total projects: <strong>${totalCount}</strong>`;
+            }
+
+            if (shownCount === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">🔍</div>
+                        <h3>No projects found</h3>
+                        <p>No project matches your search criteria.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filteredArray.map(p => {
+                const hasImage = p.header && p.header.trim() !== "";
+                const hasProjectLink = p["project link"] && p["project link"].trim() !== "";
+                
+                const paymentType = (p.type || "free").toLowerCase().trim();
+                const isPaid = paymentType === "paid";
+                const hasShopLink = p["shop link"] && p["shop link"].trim() !== "";
+                
+                const linkUrl = isPaid && hasShopLink ? p["shop link"] : (isPaid ? (p["shop link"] || "") : (p["free link"] || ""));
+                const hasLink = linkUrl.trim() !== "";
+
+                const markdownFile = p["file md"] || p["file Md"] || p["markdown file"] || p["md file"] || p["file"] || "";
+                const hasFileMd = markdownFile.trim() !== "";
+
+                const projectType = p["project type"] || "Project";
+                const projectPhase = p["project phase"] || "";
+                const priceVal = p["Price"] || p["price"] || "";
+                const hasPrice = priceVal !== "" && priceVal !== null && priceVal !== undefined;
+
+                const languagesRaw = p["type language"] || p["language"] || p["languages"] || "";
+                const languagesList = languagesRaw ? languagesRaw.split(',').map(l => l.trim()).filter(l => l !== "") : [];
+
+                let phaseBgColor = "";
+                if (projectPhase) {
+                    const matchedPhaseKey = Object.keys(phasesColorMap).find(k => k.toLowerCase() === projectPhase.toLowerCase());
+                    if (matchedPhaseKey) {
+                        phaseBgColor = phasesColorMap[matchedPhaseKey];
+                    }
+                }
+
+                let typeBgColor = "";
+                if (projectType) {
+                    const matchedTypeKey = Object.keys(typesColorMap).find(k => k.toLowerCase() === projectType.toLowerCase());
+                    if (matchedTypeKey) {
+                        typeBgColor = typesColorMap[matchedTypeKey];
+                    }
+                }
+
+                const typeBadgeClass = isPaid ? "badge-paid" : "badge-free";
+                const typeBadgeText = isPaid ? "Paid" : "Free";
+
+                const version = p.version || "";
+                const versionToDownload = p["version to download"] || "";
+                const headerImg = p.header || "";
+
+                const actionButtonText = (isPaid && hasShopLink) ? "Shop" : (isPaid ? "Buy" : "Download");
+                const actionButtonClass = isPaid ? "btn-primary btn-paid-action" : "btn-primary btn-download";
+                
+                // Ošetření odkazů, aby se otevíraly správně jako externí/plné URL adresy
+                const actionButtonAttr = isPaid ? `target="_blank"` : `target="_blank"`;
+
+                return `
+                    <div class="project-card">
+                        ${hasImage ? `
+                            <div class="project-image-banner" style="background-image: linear-gradient(to bottom, rgba(15,23,42,0.1), rgba(15,23,42,0.95)), url('${p.header}');">
+                                <span class="project-payment-badge ${typeBadgeClass}">${typeBadgeText}</span>
+                            </div>
+                        ` : `
+                            <div class="project-image-banner no-img">
+                                <span class="project-payment-badge ${typeBadgeClass}">${typeBadgeText}</span>
+                            </div>
+                        `}
+                        
+                        <div class="project-card-body">
+                            <div class="project-meta-row">
+                                <span class="project-type" ${typeBgColor ? `style="color: ${typeBgColor}; font-weight: 600;"` : ''}>${projectType}</span>
+                                ${projectPhase ? `<span class="project-phase" ${phaseBgColor ? `style="background-color: ${phaseBgColor}22; color: ${phaseBgColor}; border: 1px solid ${phaseBgColor}55;"` : ''}>${projectPhase}</span>` : ''}
+                            </div>
+
+                            <h3>${p.name}</h3>
+                            
+                            <div class="project-versions">
+                                ${version ? `<span>Dev: <strong>${version}</strong></span>` : ''}
+                                ${versionToDownload ? `<span>Download: <strong>${versionToDownload}</strong></span>` : ''}
+                            </div>
+
+                            ${languagesList.length > 0 ? `
+                                <div class="project-languages">
+                                    ${languagesList.map(lang => {
+                                        let langColor = "";
+                                        const matchedLangKey = Object.keys(languagesColorMap).find(k => k.toLowerCase() === lang.toLowerCase());
+                                        if (matchedLangKey) {
+                                            langColor = languagesColorMap[matchedLangKey];
+                                        }
+                                        return `<span class="lang-tag" ${langColor ? `style="background-color: ${langColor}22; color: ${langColor}; border: 1px solid ${langColor}55;"` : ''}>${lang}</span>`;
+                                    }).join('')}
+                                </div>
+                            ` : ''}
+
+                            ${hasPrice ? `<div class="project-price ${isPaid ? 'price-paid' : ''}">costs ${priceVal}</div>` : ''}
+
+                            <div class="project-actions">
+                                ${hasLink ? `<a href="${linkUrl}" class="${actionButtonClass}" ${actionButtonAttr}>${actionButtonText}</a>` : ''}
+                                ${hasProjectLink ? `<a href="${p["project link"]}" target="_blank" class="btn-secondary">Repository</a>` : ''}
+                                ${hasFileMd ? `<button class="btn-secondary" onclick='openDocsModal(${JSON.stringify(p.name)}, ${JSON.stringify(markdownFile)}, ${JSON.stringify(headerImg)})'>Details</button>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        async function openDocsModal(projectName, markdownFile, headerImg) {
+            const modalOverlay = document.getElementById('docs-modal-overlay');
+            const modalTitle = document.getElementById('modal-project-title');
+            const modalHeaderBg = document.getElementById('modal-header-bg');
+            const contentContainer = document.getElementById('modal-markdown-content');
+
+            modalTitle.textContent = `${projectName} - Details`;
+            
+            if (headerImg && headerImg.trim() !== "") {
+                modalHeaderBg.style.backgroundImage = `linear-gradient(rgba(10, 15, 30, 0.8), rgba(10, 15, 30, 0.9)), url('${headerImg}')`;
+                modalHeaderBg.style.backgroundSize = 'cover';
+                modalHeaderBg.style.backgroundPosition = 'center';
+            } else {
+                modalHeaderBg.style.backgroundImage = 'none';
+                modalHeaderBg.style.background = 'rgba(15, 23, 42, 0.95)';
+            }
+
+            contentContainer.innerHTML = "Loading documentation...";
+            modalOverlay.classList.remove('is-hidden');
+            modalOverlay.setAttribute('aria-hidden', 'false');
+
+            try {
+                let markdownText = "";
+                
+                if (markdownFile && markdownFile.trim() !== "") {
+                    const response = await fetch(markdownFile);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP Error ${response.status} (${response.statusText}) při otevírání souboru: "${markdownFile}". Zkontrolujte, zda soubor existuje a cesta je správná.`);
+                    }
+                    
+                    markdownText = await response.text();
+                    
+                    if (!markdownText || markdownText.trim() === "") {
+                        throw new Error(`Soubor "${markdownFile}" je prázdný.`);
+                    }
+                } else {
+                    throw new Error("Není definována cesta k Markdown souboru.");
+                }
+
+                if (typeof marked !== 'undefined') {
+                    marked.setOptions({
+                        gfm: true,
+                        breaks: true
+                    });
+
+                    if (typeof marked.parse === 'function') {
+                        contentContainer.innerHTML = marked.parse(markdownText);
+                    } else if (typeof marked === 'function') {
+                        contentContainer.innerHTML = marked(markdownText);
+                    } else {
+                        contentContainer.innerHTML = `<pre>${markdownText}</pre>`;
+                    }
+                } else {
+                    contentContainer.innerHTML = `<pre>${markdownText}</pre>`;
+                }
+            } catch (err) {
+                console.error("Chyba při načítání/parsování Markdownu:", err);
+                contentContainer.innerHTML = `
+                    <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; padding: 15px; color: #f87171;">
+                        <h4 style="margin-bottom: 6px; font-size: 1rem; color: #fca5a5;">⚠️ Chyba při načítání dokumentace</h4>
+                        <p style="font-size: 0.85rem; word-break: break-all;">${err.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function closeDocsModal() {
+            const modalOverlay = document.getElementById('docs-modal-overlay');
+            modalOverlay.classList.add('is-hidden');
+            modalOverlay.setAttribute('aria-hidden', 'true');
+        }
+
+        function switchTab(tabId, event) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            if (event && event.currentTarget) event.currentTarget.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
