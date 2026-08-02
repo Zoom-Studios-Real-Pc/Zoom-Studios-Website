@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
+
 <body>
     <div class="space-background"></div>
 
@@ -18,14 +20,14 @@
             <div class="logo-container">
                 <h1 class="logo-text">ZOOM STUDIOS</h1>
             </div>
-            
+
             <nav>
                 <button class="nav-tab active" onclick="switchTab('home', event)">Home</button>
                 <button class="nav-tab" onclick="switchTab('projects', event)">Projects</button>
                 <button class="nav-tab" onclick="switchTab('about', event)">About Us</button>
             </nav>
         </div>
-        
+
         <div class="header-socials-bar" id="header-socials-container"></div>
     </header>
 
@@ -35,14 +37,19 @@
             <div class="hero">
                 <span class="hero-badge">⚡ Official Portal</span>
                 <h2>Welcome to Zoom Studios</h2>
-                <p>We are an independent creative and technical studio building original games, applications, custom operating systems, AI tools, and immersive digital experiences from the ground up.</p>
-                <p>Our work combines programming, design, animation, modeling, drawing, and storytelling into one vision: creating ambitious projects that are powerful, original, and built with passion.</p>
+                <p>We are an independent creative and technical studio building original games, applications, custom
+                    operating systems, AI tools, and immersive digital experiences from the ground up.</p>
+                <p>Our work combines programming, design, animation, modeling, drawing, and storytelling into one
+                    vision: creating ambitious projects that are powerful, original, and built with passion.</p>
             </div>
 
             <div class="hero hero-secondary">
                 <h3 class="hero-subtitle">What defines us</h3>
-                <p>We focus on innovation, long-term creativity, and high-quality development. Whether we are building software, systems, interfaces, or visual content, we aim to make every project meaningful and memorable.</p>
-                <p>We believe in learning, experimenting, and pushing ideas forward together. If you love creating, solving problems, and bringing imagination to life, you will feel at home here.</p>
+                <p>We focus on innovation, long-term creativity, and high-quality development. Whether we are building
+                    software, systems, interfaces, or visual content, we aim to make every project meaningful and
+                    memorable.</p>
+                <p>We believe in learning, experimenting, and pushing ideas forward together. If you love creating,
+                    solving problems, and bringing imagination to life, you will feel at home here.</p>
             </div>
         </section>
 
@@ -61,7 +68,8 @@
                         <option value="type">Search by Type</option>
                         <option value="phase">Search by Phase</option>
                     </select>
-                    <input type="text" id="project-search" placeholder="Type to search..." oninput="filterAndRenderProjects()">
+                    <input type="text" id="project-search" placeholder="Type to search..."
+                        oninput="filterAndRenderProjects()">
                 </div>
                 <div id="project-counter" class="project-counter"></div>
             </div>
@@ -76,16 +84,27 @@
                 <p>Learn more about our mission, our values, and the way we build.</p>
             </div>
             <div class="hero">
-                <p>Zoom Studios is an independent creative studio focused on building original software, games, AI systems, operating systems, and digital experiences. We believe that great projects come from combining creativity, technical skill, and passion.</p>
-                <p>Our goal is not only to make things that work, but to make things that matter. We are driven by innovation, self-improvement, and the courage to build ambitious ideas from the ground up.</p>
-                <p>We are also growing a community of people who want to create with purpose. If you enjoy programming, design, animation, 3D, drawing, or any other form of digital creation, there is a place for you here.</p>
+                <p>Zoom Studios is an independent creative studio focused on building original software, games, AI
+                    systems, operating systems, and digital experiences. We believe that great projects come from
+                    combining creativity, technical skill, and passion.</p>
+                <p>Our goal is not only to make things that work, but to make things that matter. We are driven by
+                    innovation, self-improvement, and the courage to build ambitious ideas from the ground up.</p>
+                <p>We are also growing a community of people who want to create with purpose. If you enjoy programming,
+                    design, animation, 3D, drawing, or any other form of digital creation, there is a place for you
+                    here.</p>
             </div>
 
             <div class="about-social-section">
                 <h3>Join Our Team</h3>
-                <p>If you want to join Zoom Studios, the first step is to contact us through Discord. Ask the Owner or a Team Member if they would accept you, and if they say yes, be ready to answer a few important questions: what would you bring to our team, what would you add to our projects, and how would you help us grow?</p>
-                <p>We are looking for people who can help with programming games, applications, operating systems, PC-related software, animation, modeling, drawing, and many other creative or technical areas. Do not be afraid to apply — we welcome people who are willing to learn, create, and contribute.</p>
-                <p>Most of our work is currently done for free while we build toward paid projects. When the projects are paid, contributors can receive compensation based on the work they helped create.</p>
+                <p>If you want to join Zoom Studios, the first step is to contact us through Discord. Ask the Owner or a
+                    Team Member if they would accept you, and if they say yes, be ready to answer a few important
+                    questions: what would you bring to our team, what would you add to our projects, and how would you
+                    help us grow?</p>
+                <p>We are looking for people who can help with programming games, applications, operating systems,
+                    PC-related software, animation, modeling, drawing, and many other creative or technical areas. Do
+                    not be afraid to apply — we welcome people who are willing to learn, create, and contribute.</p>
+                <p>Most of our work is currently done for free while we build toward paid projects. When the projects
+                    are paid, contributors can receive compensation based on the work they helped create.</p>
                 <h3 class="connect-heading">Connect With Us</h3>
                 <p>Join our community and check out our code repositories.</p>
                 <div class="about-socials" id="about-socials-container"></div>
@@ -94,7 +113,8 @@
     </main>
 
     <!-- MODÁLNÍ GUI OKNO PRO MARKDOWN -->
-    <div id="docs-modal-overlay" class="modal-overlay is-hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-project-title">
+    <div id="docs-modal-overlay" class="modal-overlay is-hidden" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="modal-project-title">
         <div class="modal-window">
             <div class="modal-header" id="modal-header-bg">
                 <div class="modal-title-area">
@@ -119,7 +139,7 @@
 
         fetch('config.json')
             .then(response => {
-                if (!response.ok) throw new Error("Nelze načíst config.json");
+                if (!response.ok) throw new Error("Nelze načíst config.json (HTTP " + response.status + ")");
                 return response.json();
             })
             .then(data => {
@@ -129,11 +149,16 @@
             })
             .catch(error => {
                 console.error('Error:', error);
+                let extraHint = "";
+                if (window.location.protocol === 'file:') {
+                    extraHint = "<p style='font-size:0.8rem; margin-top:8px; color:#f87171;'>Tip: Spouštíte stránku přes lokální soubor (file://). Prohlížeče blokují načítání JSON kvůli CORS. Spusťte stránku přes lokální server (např. VS Code Live Server).</p>";
+                }
                 document.getElementById('projects-grid-container').innerHTML = `
                     <div class="empty-state">
                         <div class="empty-icon">⚠️</div>
                         <h3>Error loading config.json</h3>
                         <p>Make sure config.json is present in the root folder.</p>
+                        ${extraHint}
                     </div>
                 `;
             });
@@ -174,7 +199,7 @@
             if (t === 'game') return ['game'];
             if (t === 'engine') return ['engine'];
             if (t === 'website') return ['website', 'web'];
-            
+
             let results = [t];
             if (t.includes('ai')) results.push(t.replace('ai', 'artificial intelligence'));
             if (t.includes('agi')) results.push(t.replace('agi', 'artificial general intelligence'));
@@ -241,13 +266,19 @@
             container.innerHTML = filteredArray.map(p => {
                 const hasImage = p.header && p.header.trim() !== "";
                 const hasProjectLink = p["project link"] && p["project link"].trim() !== "";
-                
+
                 const paymentType = (p.type || "free").toLowerCase().trim();
                 const isPaid = paymentType === "paid";
                 const hasShopLink = p["shop link"] && p["shop link"].trim() !== "";
-                
-                const linkUrl = isPaid && hasShopLink ? p["shop link"] : (isPaid ? (p["shop link"] || "") : (p["free link"] || ""));
-                const hasLink = linkUrl.trim() !== "";
+                const hasFreeLink = p["free link"] && p["free link"].trim() !== "";
+
+                // Hlavní odkaz: Paid -> shop link, Free -> free link
+                const mainLinkUrl = isPaid ? (p["shop link"] || "") : (p["free link"] || "");
+                const hasMainLink = mainLinkUrl.trim() !== "";
+
+                // Website odkaz (Open Web)
+                const websiteLink = p["website link"] || p["web link"] || "";
+                const hasWebsiteLink = websiteLink.trim() !== "";
 
                 const markdownFile = p["file md"] || p["file Md"] || p["markdown file"] || p["md file"] || p["file"] || "";
                 const hasFileMd = markdownFile.trim() !== "";
@@ -283,23 +314,23 @@
                 const versionToDownload = p["version to download"] || "";
                 const headerImg = p.header || "";
 
-                const actionButtonText = (isPaid && hasShopLink) ? "Shop" : (isPaid ? "Buy" : "Download");
-                const actionButtonClass = isPaid ? "btn-primary btn-paid-action" : "btn-primary btn-download";
-                
-                // Ošetření odkazů, aby se otevíraly správně jako externí/plné URL adresy
-                const actionButtonAttr = isPaid ? `target="_blank"` : `target="_blank"`;
+                // 1. Tlačítko: Shop (pokud paid) nebo Download (pokud free)
+                const mainButtonText = isPaid ? "Shop" : "Download";
+                const mainButtonClass = isPaid ? "btn-primary btn-paid-action" : "btn-primary btn-download";
+
+                const headerImgBg = hasImage ? `
+                    <div class="project-image-banner" style="background-image: linear-gradient(to bottom, rgba(15,23,42,0.1), rgba(15,23,42,0.95)), url('${p.header}');">
+                        <span class="project-payment-badge ${typeBadgeClass}">${typeBadgeText}</span>
+                    </div>
+                ` : `
+                    <div class="project-image-banner no-img">
+                        <span class="project-payment-badge ${typeBadgeClass}">${typeBadgeText}</span>
+                    </div>
+                `;
 
                 return `
                     <div class="project-card">
-                        ${hasImage ? `
-                            <div class="project-image-banner" style="background-image: linear-gradient(to bottom, rgba(15,23,42,0.1), rgba(15,23,42,0.95)), url('${p.header}');">
-                                <span class="project-payment-badge ${typeBadgeClass}">${typeBadgeText}</span>
-                            </div>
-                        ` : `
-                            <div class="project-image-banner no-img">
-                                <span class="project-payment-badge ${typeBadgeClass}">${typeBadgeText}</span>
-                            </div>
-                        `}
+                        ${headerImgBg}
                         
                         <div class="project-card-body">
                             <div class="project-meta-row">
@@ -317,20 +348,21 @@
                             ${languagesList.length > 0 ? `
                                 <div class="project-languages">
                                     ${languagesList.map(lang => {
-                                        let langColor = "";
-                                        const matchedLangKey = Object.keys(languagesColorMap).find(k => k.toLowerCase() === lang.toLowerCase());
-                                        if (matchedLangKey) {
-                                            langColor = languagesColorMap[matchedLangKey];
-                                        }
-                                        return `<span class="lang-tag" ${langColor ? `style="background-color: ${langColor}22; color: ${langColor}; border: 1px solid ${langColor}55;"` : ''}>${lang}</span>`;
-                                    }).join('')}
+                    let langColor = "";
+                    const matchedLangKey = Object.keys(languagesColorMap).find(k => k.toLowerCase() === lang.toLowerCase());
+                    if (matchedLangKey) {
+                        langColor = languagesColorMap[matchedLangKey];
+                    }
+                    return `<span class="lang-tag" ${langColor ? `style="background-color: ${langColor}22; color: ${langColor}; border: 1px solid ${langColor}55;"` : ''}>${lang}</span>`;
+                }).join('')}
                                 </div>
                             ` : ''}
 
                             ${hasPrice ? `<div class="project-price ${isPaid ? 'price-paid' : ''}">costs ${priceVal}</div>` : ''}
 
                             <div class="project-actions">
-                                ${hasLink ? `<a href="${linkUrl}" class="${actionButtonClass}" ${actionButtonAttr}>${actionButtonText}</a>` : ''}
+                                ${hasMainLink ? `<a href="${mainLinkUrl}" class="${mainButtonClass}" target="_blank">${mainButtonText}</a>` : ''}
+                                ${hasWebsiteLink ? `<a href="${websiteLink}" target="_blank" class="btn-secondary btn-website-extra">Website</a>` : ''}
                                 ${hasProjectLink ? `<a href="${p["project link"]}" target="_blank" class="btn-secondary">Repository</a>` : ''}
                                 ${hasFileMd ? `<button class="btn-secondary" onclick='openDocsModal(${JSON.stringify(p.name)}, ${JSON.stringify(markdownFile)}, ${JSON.stringify(headerImg)})'>Details</button>` : ''}
                             </div>
@@ -347,7 +379,7 @@
             const contentContainer = document.getElementById('modal-markdown-content');
 
             modalTitle.textContent = `${projectName} - Details`;
-            
+
             if (headerImg && headerImg.trim() !== "") {
                 modalHeaderBg.style.backgroundImage = `linear-gradient(rgba(10, 15, 30, 0.8), rgba(10, 15, 30, 0.9)), url('${headerImg}')`;
                 modalHeaderBg.style.backgroundSize = 'cover';
@@ -363,16 +395,16 @@
 
             try {
                 let markdownText = "";
-                
+
                 if (markdownFile && markdownFile.trim() !== "") {
                     const response = await fetch(markdownFile);
-                    
+
                     if (!response.ok) {
-                        throw new Error(`HTTP Error ${response.status} (${response.statusText}) při otevírání souboru: "${markdownFile}". Zkontrolujte, zda soubor existuje a cesta je správná.`);
+                        throw new Error(`HTTP Error ${response.status} (${response.statusText}) při otevírání souboru: "${markdownFile}".`);
                     }
-                    
+
                     markdownText = await response.text();
-                    
+
                     if (!markdownText || markdownText.trim() === "") {
                         throw new Error(`Soubor "${markdownFile}" je prázdný.`);
                     }
@@ -400,7 +432,7 @@
                 console.error("Chyba při načítání/parsování Markdownu:", err);
                 contentContainer.innerHTML = `
                     <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; padding: 15px; color: #f87171;">
-                        <h4 style="margin-bottom: 6px; font-size: 1rem; color: #fca5a5;">⚠️ Chyba při načítání dokumentace</h4>
+                        <h4 style="margin-bottom: 6px; font-size: 1.0rem; color: #fca5a5;">⚠️ Chyba při načítání dokumentace</h4>
                         <p style="font-size: 0.85rem; word-break: break-all;">${err.message}</p>
                     </div>
                 `;
@@ -422,4 +454,5 @@
         }
     </script>
 </body>
+
 </html>
