@@ -34,7 +34,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
+    background:
         radial-gradient(circle at 10% 20%, rgba(0, 140, 255, 0.15) 0%, transparent 40%),
         radial-gradient(circle at 90% 80%, rgba(255, 30, 100, 0.12) 0%, transparent 40%),
         radial-gradient(circle at 50% 50%, rgba(255, 150, 0, 0.08) 0%, transparent 50%);
@@ -133,9 +133,24 @@ nav {
     transition: all 0.3s ease;
     text-decoration: none;
 }
-.icon-btn.github-icon:hover { background: #000; color: #fff; border-color: rgba(255,255,255,0.4); }
-.icon-btn.youtube-icon:hover { background: #FF0000; color: #fff; border-color: #FF0000; }
-.icon-btn.discord-icon:hover { background: #5865F2; color: #fff; border-color: #5865F2; }
+
+.icon-btn.github-icon:hover {
+    background: #000;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.icon-btn.youtube-icon:hover {
+    background: #FF0000;
+    color: #fff;
+    border-color: #FF0000;
+}
+
+.icon-btn.discord-icon:hover {
+    background: #5865F2;
+    color: #fff;
+    border-color: #5865F2;
+}
 
 .about-social-section {
     text-align: center;
@@ -171,6 +186,7 @@ nav {
     width: 42px;
     height: 42px;
 }
+
 .icon-btn-large svg {
     width: 20px;
     height: 20px;
@@ -184,8 +200,13 @@ main {
     padding: 30px 16px;
 }
 
-.tab-content { display: none; }
-.tab-content.active { display: block; }
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
 
 .hero {
     text-align: center;
@@ -309,7 +330,9 @@ main {
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.project-counter strong { color: #ffffff; }
+.project-counter strong {
+    color: #ffffff;
+}
 
 .projects-grid {
     display: grid;
@@ -357,7 +380,7 @@ main {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
     z-index: 2;
 }
 
@@ -442,18 +465,23 @@ main {
     color: #eab308;
 }
 
+/* Podpora pro až 4 tlačítka vedle sebe */
 .project-actions {
     display: flex;
-    gap: 6px;
+    gap: 4px;
     margin-top: auto;
 }
 
-.project-actions .btn-primary, 
+.project-actions .btn-primary,
 .project-actions .btn-secondary {
     flex: 1;
-    padding: 7px 4px;
-    font-size: 0.7rem;
+    min-width: 0;
+    padding: 7px 2px;
+    font-size: 0.65rem;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .btn-primary {
@@ -471,14 +499,27 @@ main {
     color: #ffffff !important;
 }
 
-.btn-download:hover { opacity: 0.9; }
+.btn-download:hover {
+    opacity: 0.9;
+}
 
 .btn-paid-action {
     background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%) !important;
     color: #0f172a !important;
 }
 
-.btn-paid-action:hover { opacity: 0.9; }
+.btn-paid-action:hover {
+    opacity: 0.9;
+}
+
+.btn-website-extra {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+    color: #ffffff !important;
+}
+
+.btn-website-extra:hover {
+    opacity: 0.9;
+}
 
 .btn-secondary {
     background: rgba(255, 255, 255, 0.05);
@@ -490,7 +531,9 @@ main {
     text-decoration: none;
 }
 
-.btn-secondary:hover { background: rgba(255, 255, 255, 0.1); }
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
 
 .modal-overlay {
     position: fixed;
@@ -539,7 +582,7 @@ main {
 .modal-title-area h3 {
     color: #ffffff;
     font-size: 1.1rem;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .modal-close-circle {
@@ -571,15 +614,14 @@ main {
     flex: 1;
 }
 
-/* Plná podpora pro veškerý Markdown obsah (VŠECHNY PRVKY) */
 .markdown-body {
     font-size: 0.9rem;
     line-height: 1.7;
     color: #cbd5e1;
 }
 
-.markdown-body h1, 
-.markdown-body h2, 
+.markdown-body h1,
+.markdown-body h2,
 .markdown-body h3,
 .markdown-body h4,
 .markdown-body h5,
@@ -590,28 +632,76 @@ main {
     font-weight: 700;
 }
 
-.markdown-body h1 { font-size: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 6px; }
-.markdown-body h2 { font-size: 1.3rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 4px; }
-.markdown-body h3 { font-size: 1.15rem; color: #38bdf8; }
-.markdown-body h4 { font-size: 1rem; }
-.markdown-body h5 { font-size: 0.9rem; }
-.markdown-body h6 { font-size: 0.85rem; color: #94a3b8; }
-
-.markdown-body p { margin-bottom: 12px; }
-
-.markdown-body ul, 
-.markdown-body ol { 
-    padding-left: 24px; 
-    margin-bottom: 12px; 
+.markdown-body h1 {
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 6px;
 }
-.markdown-body li { margin-bottom: 6px; }
-.markdown-body li > p { margin-bottom: 4px; }
 
-.markdown-body strong { color: #ffffff; font-weight: 600; }
-.markdown-body em { font-style: italic; color: #e2e8f0; }
-.markdown-body s { color: #94a3b8; }
-.markdown-body a { color: #38bdf8; text-decoration: underline; }
-.markdown-body a:hover { color: #7dd3fc; }
+.markdown-body h2 {
+    font-size: 1.3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 4px;
+}
+
+.markdown-body h3 {
+    font-size: 1.15rem;
+    color: #38bdf8;
+}
+
+.markdown-body h4 {
+    font-size: 1rem;
+}
+
+.markdown-body h5 {
+    font-size: 0.9rem;
+}
+
+.markdown-body h6 {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+.markdown-body p {
+    margin-bottom: 12px;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    padding-left: 24px;
+    margin-bottom: 12px;
+}
+
+.markdown-body li {
+    margin-bottom: 6px;
+}
+
+.markdown-body li>p {
+    margin-bottom: 4px;
+}
+
+.markdown-body strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.markdown-body em {
+    font-style: italic;
+    color: #e2e8f0;
+}
+
+.markdown-body s {
+    color: #94a3b8;
+}
+
+.markdown-body a {
+    color: #38bdf8;
+    text-decoration: underline;
+}
+
+.markdown-body a:hover {
+    color: #7dd3fc;
+}
 
 .markdown-body blockquote {
     border-left: 3px solid #38bdf8;
@@ -657,7 +747,7 @@ main {
     font-size: 0.85rem;
 }
 
-.markdown-body th, 
+.markdown-body th,
 .markdown-body td {
     border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 8px 12px;
@@ -696,9 +786,21 @@ main {
     grid-column: 1 / -1;
 }
 
-.empty-icon { font-size: 2.5rem; margin-bottom: 8px; }
-.empty-state h3 { color: #ffffff; font-size: 1.1rem; margin-bottom: 4px; }
-.empty-state p { color: #94a3b8; font-size: 0.85rem; }
+.empty-icon {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+}
+
+.empty-state h3 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.empty-state p {
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
 
 footer {
     text-align: center;
