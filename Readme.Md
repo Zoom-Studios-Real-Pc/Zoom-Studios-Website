@@ -1,8 +1,6 @@
 # 🎬 Zoom Studios — Official Website
 
-<div>
-  <img src="Assets/Photos/Zoom Studios.png" width="256" alt="Zoom Studios logo" />
-</div>
+![Zoom Studios logo](Assets/Photos/Zoom%20Studios.png)
 
 [![Live Demo](https://img.shields.io/badge/Live-zoom--studios.netlify.app-00f2fe?style=for-the-badge&logo=netlify&logoColor=white)](https://zoom-studios.netlify.app/)
 
@@ -41,9 +39,5 @@ This project is distributed under the MIT License. See [LICENSE.md](LICENSE.md) 
 
 ---
 
-<div align="center">
-
 &copy; 2026 Zoom Studios. All rights reserved.  
 Built with passion for creativity, technology, and innovation.
-
-</div>
