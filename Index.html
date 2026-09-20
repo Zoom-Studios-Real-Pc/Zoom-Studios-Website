@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zoom Studios</title>
+    <title>Zoom Studios — Official Portal</title>
+    <meta name="description" content="Zoom Studios is an independent studio creating original games, software, and operating systems.">
     <link rel="icon" type="image/png" href="Assets/Photos/Zoom Studios.png" sizes="any">
     <link rel="shortcut icon" type="image/png" href="Assets/Photos/Zoom Studios.png">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
@@ -17,39 +20,116 @@
 
     <header id="main-header">
         <div class="header-container">
-            <div class="logo-container">
+            <div class="logo-container" onclick="switchTab('home')" style="cursor: pointer;" title="Zoom Studios Home">
+                <img src="Assets/Photos/Zoom Studios.png" alt="Zoom Studios" class="header-mini-logo">
                 <h1 class="logo-text">ZOOM STUDIOS</h1>
             </div>
 
             <nav>
-                <button class="nav-tab active" onclick="switchTab('home', event)">Home</button>
-                <button class="nav-tab" onclick="switchTab('projects', event)">Projects</button>
-                <button class="nav-tab" onclick="switchTab('about', event)">About Us</button>
+                <button class="nav-tab active" id="tab-btn-home" onclick="switchTab('home', event)">Home</button>
+                <button class="nav-tab" id="tab-btn-projects" onclick="switchTab('projects', event)">Projects</button>
+                <button class="nav-tab" id="tab-btn-about" onclick="switchTab('about', event)">About Us</button>
             </nav>
         </div>
 
-        <div class="header-socials-bar" id="header-socials-container"></div>
+        <div class="header-socials-bar" id="header-socials-container">
+            <a href="https://discord.gg/fv7YXk7rQV" target="_blank" rel="noopener" class="icon-btn discord-icon" title="Discord">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            </a>
+            <a href="https://github.com/Zoom-Studios-Real-Pc" target="_blank" rel="noopener" class="icon-btn github-icon" title="GitHub">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="https://youtube.com/@zoom_studios?si=-P8csoNkPt-mxQ-y" target="_blank" rel="noopener" class="icon-btn youtube-icon" title="YouTube">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+        </div>
     </header>
 
     <main>
         <!-- HOME TAB -->
         <section id="home" class="tab-content active">
-            <div class="hero">
+            <div class="hero-showcase">
+                <div class="hero-emblem-wrap">
+                    <div class="hero-emblem-glow"></div>
+                    <img src="Assets/Photos/Zoom Studios.png" alt="Zoom Studios Official Emblem" class="hero-emblem-img"
+                        onclick="openImageLightbox('Assets/Photos/Zoom Studios.png', 'Zoom Studios Official Emblem')"
+                        title="Click to view full emblem">
+                </div>
+
                 <span class="hero-badge">⚡ Official Portal</span>
-                <h2>Welcome to Zoom Studios</h2>
-                <p>We are an independent creative and technical studio building original games, applications, custom
-                    operating systems, AI tools, and immersive digital experiences from the ground up.</p>
-                <p>Our work combines programming, design, animation, modeling, drawing, and storytelling into one
-                    vision: creating ambitious projects that are powerful, original, and built with passion.</p>
+                <h2 class="hero-title">Welcome to Zoom Studios</h2>
+                <p class="hero-lead">
+                    Zoom Studios is an independent studio dedicated to creating original games, desktop applications, 
+                    and custom operating systems. We build unique digital projects with passion and creative independence.
+                </p>
+
+                <!-- Social Links on Home -->
+                <div class="social-links-bar" id="home-socials-bar">
+                    <a href="https://discord.gg/fv7YXk7rQV" target="_blank" rel="noopener" class="social-pill discord-pill">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                        Discord Community
+                    </a>
+                    <a href="https://github.com/Zoom-Studios-Real-Pc" target="_blank" rel="noopener" class="social-pill github-pill">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                    <a href="https://youtube.com/@zoom_studios?si=-P8csoNkPt-mxQ-y" target="_blank" rel="noopener" class="social-pill youtube-pill">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        YouTube
+                    </a>
+                </div>
+
+                <div class="hero-actions">
+                    <button class="btn-hero-primary" onclick="switchTab('projects', event)">Browse Projects</button>
+                    <button class="btn-hero-secondary" onclick="switchTab('about', event)">About The Studio</button>
+                </div>
             </div>
 
-            <div class="hero hero-secondary">
-                <h3 class="hero-subtitle">What defines us</h3>
-                <p>We focus on innovation, long-term creativity, and high-quality development. Whether we are building
-                    software, systems, interfaces, or visual content, we aim to make every project meaningful and
-                    memorable.</p>
-                <p>We believe in learning, experimenting, and pushing ideas forward together. If you love creating,
-                    solving problems, and bringing imagination to life, you will feel at home here.</p>
+            <!-- Clean Essential Stats -->
+            <div class="home-stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🚀</div>
+                    <div class="stat-value" id="stat-project-count">5 Projects</div>
+                    <div class="stat-label">In Development</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💎</div>
+                    <div class="stat-value">100% Free</div>
+                    <div class="stat-label">Open Access</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🛡️</div>
+                    <div class="stat-value">Independent</div>
+                    <div class="stat-label">Original Creative Vision</div>
+                </div>
+            </div>
+
+            <!-- Core Focus Areas -->
+            <div class="pillars-section">
+                <div class="section-header">
+                    <h2>What We Build</h2>
+                    <p>Our key focus areas across the Zoom Studios ecosystem</p>
+                </div>
+
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-icon">🎮</div>
+                        <h3>Game Development</h3>
+                        <p>Original mechanics, atmospheres, and interactive worlds built with passion.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon">💻</div>
+                        <h3>Software & Applications</h3>
+                        <p>Modern desktop software, utilities, and developer tools designed for practical use.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon">⚙️</div>
+                        <h3>Operating Systems & Tools</h3>
+                        <p>Custom operating system concepts, asset extractors, and localization workflows.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -57,7 +137,23 @@
         <section id="projects" class="tab-content">
             <div class="section-header">
                 <h2>Our Projects</h2>
-                <p>Loaded dynamically from config.json with smart abbreviation filtering and multi-language support.</p>
+                <p>Browse our active projects, inspect documentation, and access repositories.</p>
+            </div>
+
+            <!-- Social Links on Projects Tab -->
+            <div class="social-links-bar" id="projects-socials-bar">
+                <a href="https://discord.gg/fv7YXk7rQV" target="_blank" rel="noopener" class="social-pill discord-pill">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    Discord
+                </a>
+                <a href="https://github.com/Zoom-Studios-Real-Pc" target="_blank" rel="noopener" class="social-pill github-pill">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://youtube.com/@zoom_studios?si=-P8csoNkPt-mxQ-y" target="_blank" rel="noopener" class="social-pill youtube-pill">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    YouTube
+                </a>
             </div>
 
             <div class="projects-controls">
@@ -71,7 +167,7 @@
                     <input type="text" id="project-search" placeholder="Type to search..."
                         oninput="filterAndRenderProjects()">
                 </div>
-                <div id="project-counter" class="project-counter"></div>
+                <div id="project-counter" class="project-counter">5 projects</div>
             </div>
 
             <div class="projects-grid" id="projects-grid-container"></div>
@@ -80,139 +176,248 @@
         <!-- ABOUT US TAB -->
         <section id="about" class="tab-content">
             <div class="section-header">
-                <h2>About Us</h2>
-                <p>Learn more about our mission, our values, and the way we build.</p>
-            </div>
-            <div class="hero">
-                <p>Zoom Studios is an independent creative studio focused on building original software, games, AI
-                    systems, operating systems, and digital experiences. We believe that great projects come from
-                    combining creativity, technical skill, and passion.</p>
-                <p>Our goal is not only to make things that work, but to make things that matter. We are driven by
-                    innovation, self-improvement, and the courage to build ambitious ideas from the ground up.</p>
-                <p>We are also growing a community of people who want to create with purpose. If you enjoy programming,
-                    design, animation, 3D, drawing, or any other form of digital creation, there is a place for you
-                    here.</p>
+                <h2>About Zoom Studios</h2>
+                <p>Learn about our studio, what drives our projects, and how to get involved.</p>
             </div>
 
-            <div class="about-social-section">
-                <h3>Join Our Team</h3>
-                <p>If you want to join Zoom Studios, the first step is to contact us through Discord. Ask the Owner or a
-                    Team Member if they would accept you, and if they say yes, be ready to answer a few important
-                    questions: what would you bring to our team, what would you add to our projects, and how would you
-                    help us grow?</p>
-                <p>We are looking for people who can help with programming games, applications, operating systems,
-                    PC-related software, animation, modeling, drawing, and many other creative or technical areas. Do
-                    not be afraid to apply — we welcome people who are willing to learn, create, and contribute.</p>
-                <p>Most of our work is currently done for free while we build toward paid projects. When the projects
-                    are paid, contributors can receive compensation based on the work they helped create.</p>
-                <h3 class="connect-heading">Connect With Us</h3>
-                <p>Join our community and check out our code repositories.</p>
-                <div class="about-socials" id="about-socials-container"></div>
+            <!-- Social Links on About Us -->
+            <div class="social-links-bar" id="about-top-socials-bar">
+                <a href="https://discord.gg/fv7YXk7rQV" target="_blank" rel="noopener" class="social-pill discord-pill">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    Join Discord
+                </a>
+                <a href="https://github.com/Zoom-Studios-Real-Pc" target="_blank" rel="noopener" class="social-pill github-pill">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub Repos
+                </a>
+                <a href="https://youtube.com/@zoom_studios?si=-P8csoNkPt-mxQ-y" target="_blank" rel="noopener" class="social-pill youtube-pill">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    YouTube Channel
+                </a>
+            </div>
+
+            <div class="about-card main-philosophy">
+                <div class="about-card-badge">✨ Who We Are</div>
+                <h3>Building Original Digital Experiences</h3>
+                <p>Zoom Studios is an independent digital studio focused on game development, desktop software, operating system projects, and creative tools. We aim to build software and games that are practical, engaging, and crafted with true independence.</p>
+            </div>
+
+            <!-- Team Recruitment -->
+            <div class="team-join-container">
+                <div class="team-join-header">
+                    <span class="hero-badge">👥 Join Us</span>
+                    <h3>Join Our Team</h3>
+                    <p>We are always open to creators who want to help build games, desktop software, 3D art, and original digital projects.</p>
+                </div>
+
+                <div class="join-steps-card">
+                    <h4>How to Join</h4>
+                    <ol class="join-steps-list">
+                        <li><strong>Join our Discord Server</strong> using the links on this page.</li>
+                        <li><strong>Contact the Owner or Team Members</strong> and let us know you'd like to get involved.</li>
+                        <li><strong>Tell us a bit about your skills</strong>: What would you like to build, what can you bring to our projects, and how would you like to contribute?</li>
+                        <li><strong>Build together</strong>: Work with us on free projects; future commercial releases include fair compensation based on your contributions!</li>
+                    </ol>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- MODÁLNÍ GUI OKNO PRO MARKDOWN -->
+    <!-- FULL IMAGE LIGHTBOX MODAL -->
+    <div id="image-lightbox" class="lightbox-overlay is-hidden" onclick="closeImageLightbox(event)" role="dialog" aria-modal="true" aria-label="Image Preview">
+        <div class="lightbox-modal">
+            <button class="lightbox-close" onclick="closeImageLightbox(event)" title="Close (Esc)">&times;</button>
+            <div class="lightbox-img-wrapper">
+                <img id="lightbox-img" src="" alt="Full Preview">
+            </div>
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- DOCUMENTATION & DETAILS MODAL -->
     <div id="docs-modal-overlay" class="modal-overlay is-hidden" aria-hidden="true" role="dialog" aria-modal="true"
         aria-labelledby="modal-project-title">
         <div class="modal-window">
-            <div class="modal-header" id="modal-header-bg">
-                <div class="modal-title-area">
-                    <h3 id="modal-project-title">Documentation</h3>
+            <div class="modal-header-hero" id="modal-header-hero">
+                <div class="modal-hero-left">
+                    <img id="modal-project-icon" src="" alt="Project Icon" class="modal-project-icon" onclick="openModalHeroImageLightbox()" title="Click to view full image">
+                    <div class="modal-title-meta">
+                        <div class="modal-badge-row" id="modal-badge-row"></div>
+                        <h3 id="modal-project-title">Documentation</h3>
+                        <div class="modal-version-row" id="modal-version-row"></div>
+                    </div>
                 </div>
-                <button class="modal-close-circle" onclick="closeDocsModal()" title="Close">
+                <button class="modal-close-circle" onclick="closeDocsModal()" title="Close (Esc)">
                     &times;
                 </button>
             </div>
             <div class="modal-body markdown-body" id="modal-markdown-content">
-                Loading...
+                Loading documentation...
             </div>
+            <div class="modal-footer" id="modal-footer-actions"></div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Zoom Studios. All rights reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2026 Zoom Studios. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
-        let rawGlobalData = {};
+        /* ==========================================================================
+           100% RELIABLE EMBEDDED CONFIG & FALLBACK (Works in file://, preview & web)
+           ========================================================================== */
+        const DEFAULT_CONFIG = {
+            "youtube link": "https://youtube.com/@zoom_studios?si=-P8csoNkPt-mxQ-y",
+            "discord link": "https://discord.gg/fv7YXk7rQV",
+            "github link": "https://github.com/Zoom-Studios-Real-Pc",
+            "language color": {
+                "C#": "#178600",
+                "XAML": "#00d8ff",
+                "C++": "#f34b7d",
+                "C": "#555555",
+                "Python": "#3572A5",
+                "HTML": "#e34c26",
+                "CSS": "#563d7c",
+                "JavaScript": "#f1e05a",
+                "TypeScript": "#3178c6",
+                "Lua": "#000080",
+                "Java": "#b07219",
+                "Rust": "#dea584",
+                "Go": "#00ADD8",
+                "PHP": "#4F5D95"
+            },
+            "phases color": {
+                "developing": "#2196F3",
+                "making big update": "#00BCD4",
+                "finished": "#2E7D32",
+                "paused": "#78909C"
+            },
+            "types color": {
+                "Game": "#E91E63",
+                "Application": "#2196F3",
+                "AI Application": "#CDDC39",
+                "Website": "#00BCD4",
+                "Integrated Development Environment": "#9C27B0"
+            },
+            "projects": {
+                "Localization Tools": {
+                    "project type": "Application",
+                    "header": "Assets/Photos/Localization Tools.png",
+                    "project link": "https://github.com/Zoom-Studios-Real-Pc/Localization-Tools",
+                    "free link": "",
+                    "shop link": "",
+                    "website link": "",
+                    "type language": "C#,XAML",
+                    "price": "",
+                    "project phase": "making big update",
+                    "file Md": "Assets/Md Files/Localization Tools.Md",
+                    "version": "v2.0.0",
+                    "version to download": "v1.0.0",
+                    "type": "free"
+                },
+                "Swa": {
+                    "project type": "Application",
+                    "header": "Assets/Photos/Swa.png",
+                    "project link": "https://github.com/Zoom-Studios-Real-Pc/Swa",
+                    "free link": "",
+                    "shop link": "",
+                    "website link": "",
+                    "type language": "",
+                    "price": "",
+                    "project phase": "developing",
+                    "file Md": "Assets/Md Files/Swa.Md",
+                    "version": "v1.0.0",
+                    "version to download": "",
+                    "type": "free"
+                },
+                "Zoom Studios": {
+                    "project type": "Website",
+                    "header": "Assets/Photos/Zoom Studios.png",
+                    "project link": "https://github.com/Zoom-Studios-Real-Pc/Zoom-Studios-Website",
+                    "free link": "",
+                    "shop link": "",
+                    "website link": "https://zoom-studios.netlify.app",
+                    "type language": "HTML,CSS,JavaScript",
+                    "price": "",
+                    "project phase": "finished",
+                    "file Md": "Assets/Md Files/Zoom Studios.Md",
+                    "version": "v1.0.0",
+                    "version to download": "",
+                    "type": "free"
+                },
+                "J.A.R.V.I.S Studio Code": {
+                    "project type": "Integrated Development Environment",
+                    "header": "Assets/Photos/J.A.R.V.I.S Studio Code.png",
+                    "project link": "https://github.com/Zoom-Studios-Real-Pc/J.A.R.V.I.S-Studio-Code",
+                    "free link": "",
+                    "shop link": "",
+                    "website link": "",
+                    "type language": "",
+                    "price": "",
+                    "project phase": "paused",
+                    "file Md": "Assets/Md Files/J.A.R.V.I.S Studio Code.Md",
+                    "version": "v1.0.0",
+                    "version to download": "",
+                    "type": "free"
+                },
+                "J.A.R.V.I.S": {
+                    "project type": "AI Application",
+                    "header": "Assets/Photos/J.A.R.V.I.S.png",
+                    "project link": "https://github.com/Zoom-Studios-Real-Pc/J.A.R.V.I.S",
+                    "free link": "",
+                    "shop link": "",
+                    "website link": "",
+                    "type language": "C#,XAML,Python",
+                    "price": "",
+                    "project phase": "developing",
+                    "file Md": "Assets/Md Files/J.A.R.V.I.S.Md",
+                    "version": "v1.0.0",
+                    "version to download": "",
+                    "type": "free"
+                }
+            }
+        };
 
+        /* Fallback documentation text for offline / file:// preview */
+        const DEFAULT_DOCS = {
+            "Localization Tools": `# Localization Tools\n\n> A comprehensive utility suite for automated translation, multi-format conversion, and game engine asset extraction.\n\n---\n\n## 🌍 Overview\n\n**Localization Tools** is engineered to streamline multilingual localization and asset management across software and game development pipelines. It helps users translate text, convert file formats, and extract assets.\n\n---\n\n## 🛠️ Key Capabilities\n\n### 1. Multilingual Content Translation\n\n- Support for text strings, localization tables, and subtitles.\n\n### 2. Format Conversion Hub\n\n- Unified converter handling common formats (JSON, XML, CSV, PO, MO, RESX).\n\n### 3. Game Engine Resource Handling\n\n- Extract packaged resources from Unity and Unreal Engine projects.\n\n---\n\n© 2026 Zoom Studios.`,
+            "Swa": `# Swa\n\n> A gaming access and management utility designed to streamline how players interact with digital libraries, DLC expansions, and third-party launchers.\n\n---\n\n## 🎮 Overview\n\n**Swa** is a specialized utility engineered for PC gamers seeking flexibility and simplified game launching workflows.\n\n---\n\n## ⚡ Core Features\n\n### 1. Temporary Game & DLC Management\n\n- Modular access to game expansions on a temporary basis.\n\n### 2. Launcher Streamlining\n\n- Bypasses redundant nested launchers for direct one-click startup.\n\n---\n\n© 2026 Zoom Studios.`,
+            "Zoom Studios": `# Zoom Studios\n\n> The official digital hub, identity, and creative ecosystem of Zoom Studios.\n\n---\n\n## 🌐 About This Website\n\nThis website is the official home of **Zoom Studios**, introducing our digital ecosystem and projects.\n\n---\n\n## 🎯 Key Pillars\n\n1. **Game Development**: Creating original, engaging gameplay mechanics.\n2. **Software & Productivity Tools**: Modern desktop applications.\n3. **Custom Operating Systems**: Exploring custom interface and system architectures.\n\n---\n\n© 2026 Zoom Studios.`,
+            "J.A.R.V.I.S Studio Code": `# J.A.R.V.I.S Studio Code\n\n> An enhanced development environment inspired by Visual Studio Code, featuring integrated J.A.R.V.I.S capabilities out of the box.\n\n---\n\n## 💻 Overview\n\n**J.A.R.V.I.S Studio Code** is a modern IDE designed for programmers, designers, and creators with built-in language runtimes.\n\n---\n\n## 🌟 Core Concepts\n\n- Familiar ergonomics matching the standard of VS Code\n- Built-in intelligent developer assistant\n- Zero-config execution: run code immediately upon opening\n\n---\n\n© 2026 Zoom Studios.`,
+            "J.A.R.V.I.S": `# J.A.R.V.I.S\n\n> A native, high-performance desktop assistant inspired by the Gemini PC experience, engineered as a standalone application with advanced programming and automation capabilities.\n\n---\n\n## ⚡ Overview\n\n**J.A.R.V.I.S** is a native Windows desktop assistant designed without browser or web-app overhead. It runs directly on your machine as an independent productivity hub.\n\n---\n\n## 🎯 Why Gemini Over Claude and Competitors?\n\n### 1. Most Cost-Effective Pro Subscription & Pricing\n\n- Massive context windows (1M to 2M+ tokens) at the lowest subscription cost.\n\n### 2. High Limits That Don't Run Out\n\n- Generous rate limits and quotas that do not cut off during intense development.\n\n### 3. Native Account Limits (No Pay-Per-Token API Keys)\n\n- Connects directly to your account: uses your own weekly quota and 5-hour rolling limits without paying for expensive metered API keys.\n\n---\n\n## 💻 Core Capabilities\n\n- **Coding Assistant**: Automated code generation, error explanation, and refactoring.\n- **100% Native Desktop App**: Fast C# and XAML performance with zero web overhead.\n- **System Automation**: Direct integration with Windows files, shortcuts, and task monitors.\n\n---\n\n© 2026 Zoom Studios.`
+        };
+
+        // Initialize immediately with DEFAULT_CONFIG so everything works instantly
+        let rawGlobalData = DEFAULT_CONFIG;
+        let currentModalHeaderImg = "";
+        let currentModalProjectName = "";
+
+        // Render projects and socials immediately from embedded data
+        filterAndRenderProjects();
+
+        // Then optionally refresh from config.json if accessible (e.g. on web server)
         fetch('config.json')
             .then(response => {
-                if (!response.ok) throw new Error("Nelze načíst config.json (HTTP " + response.status + ")");
-                return response.json();
+                if (response.ok) return response.json();
+                throw new Error("Local file or non-200 response");
             })
             .then(data => {
                 rawGlobalData = data;
-                renderSocialLinks(data);
                 filterAndRenderProjects();
             })
-            .catch(error => {
-                console.error('Error:', error);
-                let extraHint = "";
-                if (window.location.protocol === 'file:') {
-                    extraHint = "<p style='font-size:0.8rem; margin-top:8px; color:#f87171;'>Tip: Spouštíte stránku přes lokální soubor (file://). Prohlížeče blokují načítání JSON kvůli CORS. Spusťte stránku přes lokální server (např. VS Code Live Server).</p>";
-                }
-                document.getElementById('projects-grid-container').innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-icon">⚠️</div>
-                        <h3>Error loading config.json</h3>
-                        <p>Make sure config.json is present in the root folder.</p>
-                        ${extraHint}
-                    </div>
-                `;
+            .catch(() => {
+                // In local HTML preview or file://, fetch is expected to fail - embedded config already rendered perfectly!
             });
-
-        function renderSocialLinks(data) {
-            const youtubeUrl = data["youtube link"] || "";
-            const discordUrl = data["discord link"] || "";
-            const githubUrl = data["github link"] || "";
-
-            let htmlContent = '';
-
-            if (githubUrl) {
-                htmlContent += `<a href="${githubUrl}" target="_blank" class="icon-btn github-icon" title="GitHub">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                </a>`;
-            }
-            if (youtubeUrl) {
-                htmlContent += `<a href="${youtubeUrl}" target="_blank" class="icon-btn youtube-icon" title="YouTube">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                </a>`;
-            }
-            if (discordUrl) {
-                htmlContent += `<a href="${discordUrl}" target="_blank" class="icon-btn discord-icon" title="Discord">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-                </a>`;
-            }
-
-            document.getElementById('header-socials-container').innerHTML = htmlContent;
-            document.getElementById('about-socials-container').innerHTML = htmlContent.replace(/class="icon-btn/g, 'class="icon-btn icon-btn-large');
-        }
-
-        function expandSearchTerm(term) {
-            let t = term.toLowerCase().trim();
-            if (t === 'ai') return ['ai', 'artificial intelligence'];
-            if (t === 'agi') return ['agi', 'artificial general intelligence'];
-            if (t === 'app') return ['app', 'application'];
-            if (t === 'os') return ['os', 'operating system'];
-            if (t === 'game') return ['game'];
-            if (t === 'engine') return ['engine'];
-            if (t === 'website') return ['website', 'web'];
-
-            let results = [t];
-            if (t.includes('ai')) results.push(t.replace('ai', 'artificial intelligence'));
-            if (t.includes('agi')) results.push(t.replace('agi', 'artificial general intelligence'));
-            if (t.includes('app')) results.push(t.replace('app', 'application'));
-            if (t.includes('os')) results.push(t.replace('os', 'operating system'));
-            return results;
-        }
 
         function filterAndRenderProjects() {
             const container = document.getElementById('projects-grid-container');
             const counterContainer = document.getElementById('project-counter');
-            const searchTerm = document.getElementById('project-search').value.toLowerCase().trim();
-            const searchCriterion = document.getElementById('search-criterion').value;
+            const searchInput = document.getElementById('project-search');
+            const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : "";
+            const searchCriterion = document.getElementById('search-criterion') ? document.getElementById('search-criterion').value : "name";
+            
             const rawProjectsData = rawGlobalData.projects || {};
             const phasesColorMap = rawGlobalData["phases color"] || {};
             const typesColorMap = rawGlobalData["types color"] || {};
@@ -225,9 +430,7 @@
                 };
             });
 
-            projectsArray.sort((a, b) => a.name.localeCompare(b.name, 'cs', { sensitivity: 'base' }));
-
-            const expandedTerms = searchTerm !== "" ? expandSearchTerm(searchTerm) : [];
+            projectsArray.sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
 
             const filteredArray = projectsArray.filter(p => {
                 if (searchTerm === "") return true;
@@ -236,20 +439,22 @@
                     return p.name.toLowerCase().includes(searchTerm);
                 } else if (searchCriterion === 'type') {
                     const pType = (p["project type"] || "").toLowerCase();
-                    return expandedTerms.some(term => pType.includes(term));
+                    return pType.includes(searchTerm);
                 } else if (searchCriterion === 'phase') {
                     const pPhase = (p["project phase"] || "").toLowerCase();
-                    return expandedTerms.some(term => pPhase.includes(term));
+                    return pPhase.includes(searchTerm);
                 }
                 return true;
             });
 
             const totalCount = projectsArray.length;
             const shownCount = filteredArray.length;
-            if (searchTerm !== "") {
-                counterContainer.innerHTML = `Found <strong>${shownCount}</strong> of <strong>${totalCount}</strong> projects`;
-            } else {
-                counterContainer.innerHTML = `Total projects: <strong>${totalCount}</strong>`;
+            if (counterContainer) {
+                if (searchTerm !== "") {
+                    counterContainer.innerHTML = `Showing <strong>${shownCount}</strong> of <strong>${totalCount}</strong>`;
+                } else {
+                    counterContainer.innerHTML = `Total: <strong>${totalCount} projects</strong>`;
+                }
             }
 
             if (shownCount === 0) {
@@ -257,7 +462,7 @@
                     <div class="empty-state">
                         <div class="empty-icon">🔍</div>
                         <h3>No projects found</h3>
-                        <p>No project matches your search criteria.</p>
+                        <p>No project matches your search query "${searchTerm}".</p>
                     </div>
                 `;
                 return;
@@ -265,23 +470,19 @@
 
             container.innerHTML = filteredArray.map(p => {
                 const hasImage = p.header && p.header.trim() !== "";
+                const headerImg = p.header || "";
                 const hasProjectLink = p["project link"] && p["project link"].trim() !== "";
 
                 const paymentType = (p.type || "free").toLowerCase().trim();
                 const isPaid = paymentType === "paid";
-                const hasShopLink = p["shop link"] && p["shop link"].trim() !== "";
-                const hasFreeLink = p["free link"] && p["free link"].trim() !== "";
-
-                // Hlavní odkaz: Paid -> shop link, Free -> free link
                 const mainLinkUrl = isPaid ? (p["shop link"] || "") : (p["free link"] || "");
                 const hasMainLink = mainLinkUrl.trim() !== "";
 
-                // Website odkaz (Open Web)
                 const websiteLink = p["website link"] || p["web link"] || "";
                 const hasWebsiteLink = websiteLink.trim() !== "";
 
                 const markdownFile = p["file md"] || p["file Md"] || p["markdown file"] || p["md file"] || p["file"] || "";
-                const hasFileMd = markdownFile.trim() !== "";
+                const hasFileMd = markdownFile.trim() !== "" || !!DEFAULT_DOCS[p.name];
 
                 const projectType = p["project type"] || "Project";
                 const projectPhase = p["project phase"] || "";
@@ -294,17 +495,13 @@
                 let phaseBgColor = "";
                 if (projectPhase) {
                     const matchedPhaseKey = Object.keys(phasesColorMap).find(k => k.toLowerCase() === projectPhase.toLowerCase());
-                    if (matchedPhaseKey) {
-                        phaseBgColor = phasesColorMap[matchedPhaseKey];
-                    }
+                    if (matchedPhaseKey) phaseBgColor = phasesColorMap[matchedPhaseKey];
                 }
 
                 let typeBgColor = "";
                 if (projectType) {
                     const matchedTypeKey = Object.keys(typesColorMap).find(k => k.toLowerCase() === projectType.toLowerCase());
-                    if (matchedTypeKey) {
-                        typeBgColor = typesColorMap[matchedTypeKey];
-                    }
+                    if (matchedTypeKey) typeBgColor = typesColorMap[matchedTypeKey];
                 }
 
                 const typeBadgeClass = isPaid ? "badge-paid" : "badge-free";
@@ -312,25 +509,30 @@
 
                 const version = p.version || "";
                 const versionToDownload = p["version to download"] || "";
-                const headerImg = p.header || "";
 
-                // 1. Tlačítko: Shop (pokud paid) nebo Download (pokud free)
                 const mainButtonText = isPaid ? "Shop" : "Download";
                 const mainButtonClass = isPaid ? "btn-primary btn-paid-action" : "btn-primary btn-download";
 
-                const headerImgBg = hasImage ? `
-                    <div class="project-image-banner" style="background-image: linear-gradient(to bottom, rgba(15,23,42,0.1), rgba(15,23,42,0.95)), url('${p.header}');">
+                // SHOW ENTIRE IMAGE: Ambient glow blur background + full-contain crisp foreground image
+                const imageShowcase = hasImage ? `
+                    <div class="project-image-showcase" onclick="openImageLightbox('${headerImg}', '${p.name.replace(/'/g, "\\'")}')" title="Click to view full image">
+                        <div class="project-image-blur" style="background-image: url('${headerImg}');"></div>
+                        <img src="${headerImg}" alt="${p.name}" class="project-image-full" loading="lazy">
                         <span class="project-payment-badge ${typeBadgeClass}">${typeBadgeText}</span>
+                        <span class="project-zoom-badge" title="Click to view full image">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                        </span>
                     </div>
                 ` : `
-                    <div class="project-image-banner no-img">
+                    <div class="project-image-showcase no-img">
+                        <div class="project-placeholder-logo">ZS</div>
                         <span class="project-payment-badge ${typeBadgeClass}">${typeBadgeText}</span>
                     </div>
                 `;
 
                 return `
                     <div class="project-card">
-                        ${headerImgBg}
+                        ${imageShowcase}
                         
                         <div class="project-card-body">
                             <div class="project-meta-row">
@@ -338,33 +540,31 @@
                                 ${projectPhase ? `<span class="project-phase" ${phaseBgColor ? `style="background-color: ${phaseBgColor}22; color: ${phaseBgColor}; border: 1px solid ${phaseBgColor}55;"` : ''}>${projectPhase}</span>` : ''}
                             </div>
 
-                            <h3>${p.name}</h3>
+                            <h3 class="project-title">${p.name}</h3>
                             
                             <div class="project-versions">
                                 ${version ? `<span>Dev: <strong>${version}</strong></span>` : ''}
-                                ${versionToDownload ? `<span>Download: <strong>${versionToDownload}</strong></span>` : ''}
+                                ${versionToDownload ? `<span>Release: <strong>${versionToDownload}</strong></span>` : ''}
                             </div>
 
                             ${languagesList.length > 0 ? `
                                 <div class="project-languages">
                                     ${languagesList.map(lang => {
-                    let langColor = "";
-                    const matchedLangKey = Object.keys(languagesColorMap).find(k => k.toLowerCase() === lang.toLowerCase());
-                    if (matchedLangKey) {
-                        langColor = languagesColorMap[matchedLangKey];
-                    }
-                    return `<span class="lang-tag" ${langColor ? `style="background-color: ${langColor}22; color: ${langColor}; border: 1px solid ${langColor}55;"` : ''}>${lang}</span>`;
-                }).join('')}
+                                        let langColor = "";
+                                        const matchedLangKey = Object.keys(languagesColorMap).find(k => k.toLowerCase() === lang.toLowerCase());
+                                        if (matchedLangKey) langColor = languagesColorMap[matchedLangKey];
+                                        return `<span class="lang-tag" ${langColor ? `style="background-color: ${langColor}22; color: ${langColor}; border: 1px solid ${langColor}55;"` : ''}>${lang}</span>`;
+                                    }).join('')}
                                 </div>
                             ` : ''}
 
                             ${hasPrice ? `<div class="project-price ${isPaid ? 'price-paid' : ''}">costs ${priceVal}</div>` : ''}
 
                             <div class="project-actions">
-                                ${hasMainLink ? `<a href="${mainLinkUrl}" class="${mainButtonClass}" target="_blank">${mainButtonText}</a>` : ''}
-                                ${hasWebsiteLink ? `<a href="${websiteLink}" target="_blank" class="btn-secondary btn-website-extra">Website</a>` : ''}
-                                ${hasProjectLink ? `<a href="${p["project link"]}" target="_blank" class="btn-secondary">Repository</a>` : ''}
-                                ${hasFileMd ? `<button class="btn-secondary" onclick='openDocsModal(${JSON.stringify(p.name)}, ${JSON.stringify(markdownFile)}, ${JSON.stringify(headerImg)})'>Details</button>` : ''}
+                                ${hasMainLink ? `<a href="${mainLinkUrl}" class="${mainButtonClass}" target="_blank" rel="noopener">${mainButtonText}</a>` : ''}
+                                ${hasWebsiteLink ? `<a href="${websiteLink}" target="_blank" rel="noopener" class="btn-secondary btn-website-extra">Website</a>` : ''}
+                                ${hasProjectLink ? `<a href="${p["project link"]}" target="_blank" rel="noopener" class="btn-secondary">Repository</a>` : ''}
+                                ${hasFileMd ? `<button class="btn-secondary btn-details" onclick="openDocsModal('${encodeURIComponent(p.name)}')">Details</button>` : ''}
                             </div>
                         </div>
                     </div>
@@ -372,52 +572,118 @@
             }).join('');
         }
 
-        async function openDocsModal(projectName, markdownFile, headerImg) {
+        /* LIGHTBOX FUNCTIONALITY FOR FULL IMAGES */
+        function openImageLightbox(src, title) {
+            if (!src) return;
+            const lightbox = document.getElementById('image-lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            lightboxImg.src = src;
+            lightboxCaption.textContent = title || "Full Image Preview";
+            lightbox.classList.remove('is-hidden');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageLightbox(event) {
+            if (event && event.target && event.target.id === 'lightbox-img') {
+                return; // Clicking on image itself does not close
+            }
+            const lightbox = document.getElementById('image-lightbox');
+            lightbox.classList.add('is-hidden');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        function openModalHeroImageLightbox() {
+            if (currentModalHeaderImg) {
+                openImageLightbox(currentModalHeaderImg, currentModalProjectName);
+            }
+        }
+
+        /* DOCUMENTATION MODAL (WITH FILE:// PREVIEW FALLBACK) */
+        async function openDocsModal(encodedProjectName) {
+            const projectName = decodeURIComponent(encodedProjectName);
+            const p = (rawGlobalData.projects || {})[projectName] || {};
+            const markdownFile = p["file md"] || p["file Md"] || p["markdown file"] || p["md file"] || p["file"] || "";
+            const headerImg = p.header || "";
+            const projectType = p["project type"] || "Project";
+            const projectPhase = p["project phase"] || "";
+            const version = p.version || "";
+            const versionToDownload = p["version to download"] || "";
+            const projectLink = p["project link"] || "";
+            const websiteLink = p["website link"] || p["web link"] || "";
+
+            currentModalHeaderImg = headerImg;
+            currentModalProjectName = projectName;
+
             const modalOverlay = document.getElementById('docs-modal-overlay');
             const modalTitle = document.getElementById('modal-project-title');
-            const modalHeaderBg = document.getElementById('modal-header-bg');
+            const modalIcon = document.getElementById('modal-project-icon');
+            const modalBadgeRow = document.getElementById('modal-badge-row');
+            const modalVersionRow = document.getElementById('modal-version-row');
             const contentContainer = document.getElementById('modal-markdown-content');
+            const footerActions = document.getElementById('modal-footer-actions');
 
-            modalTitle.textContent = `${projectName} - Details`;
+            modalTitle.textContent = projectName;
 
             if (headerImg && headerImg.trim() !== "") {
-                modalHeaderBg.style.backgroundImage = `linear-gradient(rgba(10, 15, 30, 0.8), rgba(10, 15, 30, 0.9)), url('${headerImg}')`;
-                modalHeaderBg.style.backgroundSize = 'cover';
-                modalHeaderBg.style.backgroundPosition = 'center';
+                modalIcon.src = headerImg;
+                modalIcon.alt = projectName;
+                modalIcon.style.display = 'block';
             } else {
-                modalHeaderBg.style.backgroundImage = 'none';
-                modalHeaderBg.style.background = 'rgba(15, 23, 42, 0.95)';
+                modalIcon.style.display = 'none';
             }
 
-            contentContainer.innerHTML = "Loading documentation...";
+            modalBadgeRow.innerHTML = `
+                <span class="modal-pill-badge">${projectType}</span>
+                ${projectPhase ? `<span class="modal-pill-phase">${projectPhase}</span>` : ''}
+            `;
+
+            modalVersionRow.innerHTML = `
+                ${version ? `<span>Dev Version: <strong>${version}</strong></span>` : ''}
+                ${versionToDownload ? `<span>Release: <strong>${versionToDownload}</strong></span>` : ''}
+            `;
+
+            let footerHtml = '';
+            if (websiteLink) {
+                footerHtml += `<a href="${websiteLink}" target="_blank" rel="noopener" class="btn-secondary">Open Website</a>`;
+            }
+            if (projectLink) {
+                footerHtml += `<a href="${projectLink}" target="_blank" rel="noopener" class="btn-secondary">GitHub Repository</a>`;
+            }
+            footerHtml += `<button class="btn-primary" onclick="closeDocsModal()">Done Reading</button>`;
+            footerActions.innerHTML = footerHtml;
+
+            contentContainer.innerHTML = `
+                <div class="modal-loading-indicator">
+                    <div class="spinner"></div>
+                    <p>Loading documentation...</p>
+                </div>
+            `;
             modalOverlay.classList.remove('is-hidden');
             modalOverlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
 
+            let markdownText = "";
             try {
-                let markdownText = "";
-
                 if (markdownFile && markdownFile.trim() !== "") {
                     const response = await fetch(markdownFile);
-
-                    if (!response.ok) {
-                        throw new Error(`HTTP Error ${response.status} (${response.statusText}) při otevírání souboru: "${markdownFile}".`);
+                    if (response.ok) {
+                        markdownText = await response.text();
                     }
-
-                    markdownText = await response.text();
-
-                    if (!markdownText || markdownText.trim() === "") {
-                        throw new Error(`Soubor "${markdownFile}" je prázdný.`);
-                    }
-                } else {
-                    throw new Error("Není definována cesta k Markdown souboru.");
                 }
+            } catch (fetchErr) {
+                // Fetch failed (expected in local preview / file://) -> use embedded fallback
+            }
 
+            if (!markdownText && DEFAULT_DOCS[projectName]) {
+                markdownText = DEFAULT_DOCS[projectName];
+            }
+
+            if (markdownText) {
                 if (typeof marked !== 'undefined') {
-                    marked.setOptions({
-                        gfm: true,
-                        breaks: true
-                    });
-
+                    marked.setOptions({ gfm: true, breaks: true });
                     if (typeof marked.parse === 'function') {
                         contentContainer.innerHTML = marked.parse(markdownText);
                     } else if (typeof marked === 'function') {
@@ -428,12 +694,11 @@
                 } else {
                     contentContainer.innerHTML = `<pre>${markdownText}</pre>`;
                 }
-            } catch (err) {
-                console.error("Chyba při načítání/parsování Markdownu:", err);
+            } else {
                 contentContainer.innerHTML = `
-                    <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; padding: 15px; color: #f87171;">
-                        <h4 style="margin-bottom: 6px; font-size: 1.0rem; color: #fca5a5;">⚠️ Chyba při načítání dokumentace</h4>
-                        <p style="font-size: 0.85rem; word-break: break-all;">${err.message}</p>
+                    <div class="modal-error-box">
+                        <h4>Documentation Unavailable</h4>
+                        <p>No documentation found for ${projectName}.</p>
                     </div>
                 `;
             }
@@ -443,15 +708,39 @@
             const modalOverlay = document.getElementById('docs-modal-overlay');
             modalOverlay.classList.add('is-hidden');
             modalOverlay.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
         }
 
         function switchTab(tabId, event) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.querySelectorAll('.nav-tab').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            if (event && event.currentTarget) event.currentTarget.classList.add('active');
+            
+            const targetTab = document.getElementById(tabId);
+            if (targetTab) targetTab.classList.add('active');
+
+            const targetBtn = document.getElementById(`tab-btn-${tabId}`);
+            if (targetBtn) {
+                targetBtn.classList.add('active');
+            } else if (event && event.currentTarget && event.currentTarget.classList.contains('nav-tab')) {
+                event.currentTarget.classList.add('active');
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        /* Keyboard handler for ESC */
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const lightbox = document.getElementById('image-lightbox');
+                if (lightbox && !lightbox.classList.contains('is-hidden')) {
+                    closeImageLightbox();
+                    return;
+                }
+                const modal = document.getElementById('docs-modal-overlay');
+                if (modal && !modal.classList.contains('is-hidden')) {
+                    closeDocsModal();
+                }
+            }
+        });
     </script>
 </body>
 
